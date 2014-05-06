@@ -1190,8 +1190,8 @@ steal("can/component", "can/view/stache", function () {
 		
 	});
 
-	test("stache conditionally nested components calls inserted once", function(){
-		expect(1);
+	test("stache conditionally nested components calls inserted once (#967)", function(){
+		expect(2);
 
 		can.Component.extend({
 			tag: "can-parent-stache",
@@ -1225,9 +1225,6 @@ steal("can/component", "can/view/stache", function () {
 
 		can.append(can.$('#qunit-test-area'), template2());
 
-
-
-
-	})
+	});
 
 });
