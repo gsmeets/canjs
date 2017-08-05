@@ -1,5 +1,5 @@
 @page guides/setup Setting up CanJS
-@parent guides/experiment 5
+@parent guides/getting-started 0
 @outline 2
 
 @description Get started with CanJS by installing it with [npm](https://www.npmjs.com/), using a [JS&nbsp;Bin](https://jsbin.com/about), or just adding it to an HTML page with a `<script>` tag.
@@ -21,7 +21,8 @@ ask on the [forums](http://forums.donejs.com/c/canjs) or [Gitter chat](https://g
 
 Use this JS Bin to play around with CanJS:
 
-<a class="jsbin-embed" href="//jsbin.com/safigic/7/embed?html,js,output">CanJS on jsbin.com</a><script src="//static.jsbin.com/js/embed.min.js?3.40.2"></script>
+<a class="jsbin-embed" href="//jsbin.com/safigic/7/embed?html,js,output">CanJS on jsbin.com</a>
+<script src="https://static.jsbin.com/js/embed.min.js?4.0.4"></script>
 
 It uses `can.all.js` so you have the [can-core core], [can-ecosystem ecosystem], and [can-infrastructure infrastructure] modules available to you.
 
@@ -90,7 +91,7 @@ document.body.appendChild(template(data));
 ```
 @highlight 2-3
 
-__Note:__ if you see dozens of errors in your console, you may need to set `system.npmAlgorithm` to `flat` in your `package.json` (see the [Steal docs](http://stealjs.com/docs/StealJS.quick-start.html#section_Setup) for more info).
+__Note:__ if you see dozens of errors in your console, you may need to set `system.npmAlgorithm` to `flat` in your `package.json` (see the [Steal docs](https://stealjs.com/docs/StealJS.quick-start.html#section_Setup) for more info).
 
 ### Building for production
 
@@ -99,7 +100,7 @@ guide has instructions for how to create a production build.
 
 ## webpack and npm
 
-Install [can-core CanJS’s core modules] and Webpack (with `raw-loader`) with npm:
+Install [can-core CanJS’s core modules] and webpack (with `raw-loader`) with npm:
 
 ```
 npm install can-component can-compute can-connect can-define can-route can-route-pushstate can-set can-stache can-stache-bindings --save
@@ -284,3 +285,13 @@ Another quick way to start locally is by loading CanJS from a CDN:
     </body>
     </html>
 @highlight 6-6
+
+## A note on Promises
+
+CanJS uses native [Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), which means you might see the following error in Internet Explorer 9 or later:
+
+```
+'Promise' is undefined
+```
+
+You must include a Promise polyfill if you’re targeting browsers that do not have [native support](https://caniuse.com/#feat=promises). If you’re using [StealJS](https://stealjs.com/), [a Promise polyfill](https://github.com/stefanpenner/es6-promise) is included for you.
